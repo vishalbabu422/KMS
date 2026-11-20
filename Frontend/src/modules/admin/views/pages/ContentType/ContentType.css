@@ -1,0 +1,20 @@
+.content-type-table th:nth-child(1),
+.content-type-table td:nth-child(1),
+.content-type-table th:nth-child(2),
+.content-type-table td:nth-child(2) {
+  width: 5rem;
+  max-width: 5rem;
+}
+
+.content-type-table th:nth-child(3),
+.content-type-table td:nth-child(3) {
+  width: 12rem;
+  max-width: 12rem;
+}
+
+.content-type-table th:nth-child(7),
+.content-type-table td:nth-child(7) {
+  width: 5.5rem;
+  max-width: 5.5rem;
+}
+

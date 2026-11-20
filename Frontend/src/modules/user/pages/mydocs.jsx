@@ -1,0 +1,211 @@
+import React from 'react';
+import { useState } from "react";
+import Xmark from "../assets/images/svg/Xmark.svg";
+import Delete from "../assets/images/svg/Delete.svg";
+import PDFIcon from "../assets/images/Inbox-icons/pdf.svg";
+import WordIcon from "../assets/images/Inbox-icons/word.svg";
+import ExcelIcon from "../assets/images/Inbox-icons/excel.svg";
+import ZipIcon from "../assets/images/Inbox-icons/zip.svg";
+import { usePageContextMenu } from "../components/elements/PageContextMenuProvider";
+import "react-contexify/dist/ReactContexify.css";
+
+
+
+const MENU_ID = "example_menu";
+
+const MyDocs = () => {
+    const [selectedCount, setSelectedCount] = React.useState(0);
+
+    const handleCheckChange = (e) => {
+        setSelectedCount(prev =>
+            e.target.checked ? prev + 1 : prev - 1
+        );
+    };
+
+
+
+    const tableData = [
+        {
+            icon: PDFIcon,
+            title: "Horem ipsum dolor sit amet",
+            createdBy: "Anil Kumar Sahu",
+            createdOn: "12 Apr 2024",
+            modifiedBy: "Anil Kumar Sahu",
+            modifiedOn: "12 Apr 2024",
+            status: "Private"
+        },
+        {
+            icon: WordIcon,
+            title: "Horem ipsum dolor sit amet",
+            createdBy: "Anil Kumar Sharma",
+            createdOn: "13 Apr 2024",
+            modifiedBy: "Anil Kumar Sahu",
+            modifiedOn: "12 Apr 2024",
+            status: "Published"
+        },
+        {
+            icon: ExcelIcon,
+            title: "Horem ipsum dolor sit amet",
+            createdBy: "Anil Kumar",
+            createdOn: "14 Apr 2024",
+            modifiedBy: "Anil Kumar Sahu",
+            modifiedOn: "12 Apr 2024",
+            status: "Published"
+        },
+        {
+            icon: ZipIcon,
+            title: "Horem ipsum dolor sit amet",
+            createdBy: "Anita Kumari",
+            createdOn: "15 Apr 2024",
+            modifiedBy: "Anil Kumar Sahu",
+            modifiedOn: "12 Apr 2024",
+            status: "Private"
+        }
+    ];
+
+    function getStatusClass(status) {
+        return status === "Private" ? "state-pri" : "state-pub";
+    }
+
+    function filterList(e) {
+        const value = e.target.value.toLowerCase();
+
+        const rows = document.querySelectorAll(
+            "#kms-inbox-recent-nav tr, \
+            #kms-inbox-pending-app-nav tr, \
+            #kms-inbox-pending-pub-nav tr, \
+            #kms-inbox-pending-assessment-nav tr, \
+            #kms-inbox-shared-withme-nav tr, \
+            #kms-inbox-shared-byme-nav tr, \
+            #kms-inbox-subs-folder-nav tr, \
+            #kms-inbox-subs-file-nav tr"
+        );
+
+        rows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(value) ? "" : "none";
+        });
+    }
+
+    const openMenu = usePageContextMenu();
+
+    return (
+        <>
+            <div className="main-bg p-4 tab-content">
+                <div>
+                    <div className="row">
+                        <div className="col-xxl-7 d-flex align-items-center">
+                            <div className="main-nav-heading">My Docs</div>
+                        </div>
+
+                        <div className="col-xxl-5 pb-0 pb-md-0">
+                            <div className="row justify-content-end align-items-center">
+                                <div className="col-md-6 p-2 pe-3 d-flex justify-content-md-end justify-content-center order-md-1 order-2 search-wrapper">
+                                    <button className="btn label-search-home-kms w-auto">
+                                        <i className="bi bi-search" aria-hidden="true"></i>
+                                    </button>
+                                    <input className="search-home-kms py-md-2"
+                                        id="search-kms-inbox"
+                                        type="text"
+                                        name="q"
+                                        placeholder="Search"
+                                        onKeyUp={(e) => filterList(e)} />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                {/* Action bar */}
+                <div className={`action-bar2 ${selectedCount > 0 ? "" : "d-none"}`}>
+                    <div className="row px-4 d-flex flex-grow-1 gx-4 align-items-center">
+
+                        <div className="col-auto select-items">
+                            <span className="d-flex align-items-center">
+                                <button type="button" className="btn btn-link p-0 w-auto">
+                                    <img src={Xmark} alt="" />
+                                </button>
+                                <span className="px-2">{selectedCount} Selected</span>
+                            </span>
+                        </div>
+
+                        <div className="col-auto select-items">
+                            <span className="d-flex align-items-center">
+                                <button type="button" className="btn btn-link p-0 my-2 w-auto">
+                                    <img src={Delete} alt="Delete" />
+                                </button>
+                                <span className="px-2">Delete</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                {/* ============ TAB CONTENT SECTION STARTS ============== */}
+
+                {/* ---------- Recent Tab ---------- */}
+                <div className="notice-board-nav-inbox mt-3 tab-content border-0" id="pills-tabContent">
+                    <div className="tab-pane fade show active" id="kms-recent" role="tabpanel">
+                        <div className="col-md p-0 table-border-radius kms-table-height table-responsive">
+                            <table className="table table-task">
+                                <thead className="record-list">
+                                    <tr className="tablerowalign-head">
+                                        <th style={{ width: "2%" }}></th>
+                                        <th style={{ width: "30%" }}>Title</th>
+                                        <th style={{ width: "15%" }}>Created by</th>
+                                        <th style={{ width: "15%" }}>Created on</th>
+                                        <th style={{ width: "15%" }}>Modify by</th>
+                                        <th style={{ width: "13%" }}>Last modified</th>
+                                        <th style={{ width: "10%" }}>State</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="kms-inbox-recent-nav">
+                                    {tableData.map((row, index) => (
+                                        <tr className="kms-inbox-recent" key={index} onContextMenu={(e) => openMenu(e, row)}>
+                                            <td>
+                                                <div className="form-check d-flex align-items-center justify-content-center">
+                                                    <input className="form-check-input check-box check-box2" type="checkbox" onChange={handleCheckChange} />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <img src={row.icon} alt="file" className="px-1" /> {row.title}
+                                            </td>
+
+                                            <td>{row.createdBy}</td>
+                                            <td>{row.createdOn}</td>
+                                            <td>{row.modifiedBy}</td>
+                                            <td>{row.modifiedOn}</td>
+
+                                            <td>
+                                                <span className={`download-table-content1 ${getStatusClass(row.status)}`}>
+                                                    {row.status}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div className="d-flex justify-content-end p-2">
+                            <nav aria-label="Page navigation example">
+                                <ul className="pagination kms-inbox-page mb-0">
+                                    <li className="page-item"><a className="page-link" href="#">Previous</a></li>
+                                    <li className="page-item"><a className="page-link" href="#">1</a></li>
+                                    <li className="page-item"><a className="page-link" href="#">2</a></li>
+                                    <li className="page-item"><a className="page-link" href="#">3</a></li>
+                                    <li className="page-item"><a className="page-link" href="#">Next</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+}
+
+export default MyDocs
+
+

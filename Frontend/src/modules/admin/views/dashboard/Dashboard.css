@@ -1,0 +1,51 @@
+
+.kms-dashboard-container {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+ 
+  margin-top: 1px;
+  box-sizing: border-box;
+}
+
+.kms-dashboard-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(280px, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.kms-dashboard-left {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  min-width: 0;
+}
+
+.kms-dashboard-analytics {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+  gap: 18px;
+  min-width: 0;
+}
+
+@media (max-width: 1200px) {
+  .kms-dashboard-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .kms-dashboard-analytics {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 575px) {
+  .kms-dashboard-container {
+    padding: 0 10px 10px;
+    margin-top: 0.75rem;
+  }
+
+  .kms-dashboard-analytics {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,22 @@
+.workflow-roles-sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.workflow-roles-table th:first-child,
+.workflow-roles-table td:first-child {
+  width: 4.5rem;
+  min-width: 4.5rem;
+}
+
+.workflow-roles-table th:nth-child(4),
+.workflow-roles-table td:nth-child(4) {
+  width: 7rem;
+  min-width: 7rem;
+}
+
+.workflow-roles-table th:last-child,
+.workflow-roles-table td:last-child {
+  width: 6rem;
+  min-width: 6rem;
+}

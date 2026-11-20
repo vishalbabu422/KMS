@@ -1,0 +1,15 @@
+.user-roles-sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.user-roles-table th:last-child,
+.user-roles-table td:last-child {
+  min-width: 10rem;
+}
+
+.user-roles-table th:first-child,
+.user-roles-table td:first-child {
+  width: 4.5rem;
+  min-width: 4.5rem;
+}

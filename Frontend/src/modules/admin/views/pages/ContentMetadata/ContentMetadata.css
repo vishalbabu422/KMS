@@ -1,0 +1,29 @@
+.content-metadata-page .content-metadata-page-size {
+  width: 3.8rem !important;
+  min-width: 3.8rem;
+}
+
+.content-metadata-modal .modal-body {
+  max-height: calc(100vh - 11rem);
+  overflow-y: auto;
+}
+
+.content-metadata-table th:nth-child(1),
+.content-metadata-table td:nth-child(1),
+.content-metadata-table th:nth-child(2),
+.content-metadata-table td:nth-child(2) {
+  width: 5rem;
+  max-width: 5rem;
+}
+
+.content-metadata-table th:nth-child(4),
+.content-metadata-table td:nth-child(4) {
+  width: 7rem;
+  max-width: 7rem;
+}
+
+.content-metadata-table th:nth-child(7),
+.content-metadata-table td:nth-child(7) {
+  width: 4.5rem;
+  max-width: 4.5rem;
+}

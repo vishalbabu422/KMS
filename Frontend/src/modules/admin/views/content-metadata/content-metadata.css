@@ -1,0 +1,361 @@
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.content-metadata-page {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0 0 24px;
+  background: transparent;
+  color: #080a0c;
+  font-family: var(--bs-body-font-family, Inter, sans-serif);
+  box-sizing: border-box;
+}
+
+.content-metadata-card {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(16, 24, 40, 0.04);
+  overflow: hidden;
+}
+
+.content-metadata-card .card-body {
+  padding: 24px;
+}
+
+/* =========================================
+   FORM SPACING
+========================================= */
+
+.content-metadata-card .row {
+  --cui-gutter-x: 20px;
+  --cui-gutter-y: 28px;
+}
+
+/* =========================================
+   COMMON FORM FONT SIZE
+========================================= */
+
+.content-metadata-card input,
+.content-metadata-card select,
+.content-metadata-card textarea,
+.content-metadata-card .form-control,
+.content-metadata-card .form-select {
+  font-family: inherit !important;
+  font-size: 14px !important;
+  font-weight: 400;
+  letter-spacing: normal;
+  color: #344054;
+}
+
+/* =========================================
+   INPUTS
+========================================= */
+
+.content-metadata-card .form-floating > .form-control {
+  width: 100%;
+  height: 48px;
+  min-height: 48px;
+  padding: 15px 13px 5px;
+  border: 1px solid #d0d5dd;
+  border-radius: 5px !important;
+  background-color: #fff !important;
+  color: #344054;
+  font-size: 14px !important;
+  font-weight: 400;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  outline: none !important;
+}
+
+/* =========================================
+   ALL DROPDOWNS - SAME DESIGN
+========================================= */
+
+.content-metadata-card .form-floating > .form-select {
+  display: block;
+  width: 100%;
+  height: 48px !important;
+  min-height: 48px !important;
+  padding: 13px 38px 5px 13px;
+  border: 1px solid #d0d5dd !important;
+  border-radius: 5px !important;
+  background-color: #fff !important;
+  color: #344054 !important;
+  font-family: inherit !important;
+  font-size: 14px !important;
+  font-weight: 400;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  outline: none !important;
+  cursor: pointer;
+}
+
+.content-metadata-card #priority_serial_no {
+  color: #080a0c !important;
+}
+
+/* Remove grey background from selected dropdown */
+
+.content-metadata-card .form-select,
+.content-metadata-card .form-select:valid,
+.content-metadata-card .form-select:invalid,
+.content-metadata-card .form-select:active {
+  background-color: #fff !important;
+}
+
+/* Dropdown options */
+
+.content-metadata-card .form-select option {
+  background-color: #fff !important;
+  color: #344054 !important;
+  font-family: inherit;
+  font-size: 14px !important;
+}
+
+/* Dropdown hover */
+
+.content-metadata-card .form-select:hover {
+  border-color: #b8c5d8 !important;
+  background-color: #fff !important;
+}
+
+/* =========================================
+   PLACEHOLDERS
+========================================= */
+
+.content-metadata-card .form-control::placeholder,
+.content-metadata-card textarea::placeholder {
+  color: #667085 !important;
+  font-size: 14px !important;
+  font-weight: 400;
+  opacity: 1 !important;
+}
+
+/* =========================================
+   FLOATING LABELS
+========================================= */
+
+.content-metadata-card .form-floating {
+  position: relative;
+}
+
+.content-metadata-card .form-floating > label {
+  position: absolute;
+  top: -9px;
+  left: 10px;
+  z-index: 2;
+  width: auto;
+  height: auto;
+  padding: 0 5px;
+  background: #fff;
+  color: #080a0c;
+  font-size: 13px !important;
+  font-weight: 600;
+  line-height: 18px;
+  opacity: 1;
+  transform: none !important;
+  pointer-events: none;
+}
+
+/* Prevent Bootstrap label movement */
+
+.content-metadata-card
+  .form-floating
+  > .form-control:focus
+  ~ label,
+.content-metadata-card
+  .form-floating
+  > .form-control:not(:placeholder-shown)
+  ~ label,
+.content-metadata-card
+  .form-floating
+  > .form-select
+  ~ label {
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+/* =========================================
+   FOCUS EFFECT
+========================================= */
+
+.content-metadata-card .form-control:focus,
+.content-metadata-card .form-select:focus,
+.content-metadata-card input:focus,
+.content-metadata-card textarea:focus {
+  outline: none !important;
+  border-color: #b8c5d8 !important;
+  background-color: #fff !important;
+  box-shadow: 0 0 0 2px rgba(0, 34, 102, 0.06) !important;
+}
+
+.content-metadata-card .form-control:focus-visible,
+.content-metadata-card .form-select:focus-visible {
+  outline: none !important;
+}
+
+/* =========================================
+   TEXTAREA
+========================================= */
+
+.content-metadata-card .form-floating > textarea.form-control {
+  width: 100%;
+  height: 90px;
+  min-height: 90px;
+  padding: 20px 13px 10px;
+  border: 1px solid #d0d5dd;
+  border-radius: 5px !important;
+  background-color: #fff !important;
+  resize: vertical;
+  line-height: 1.5;
+  font-size: 14px !important;
+}
+
+.content-metadata-card
+  .form-floating
+  > textarea.form-control
+  ~ label {
+  padding: 0 5px;
+}
+
+/* =========================================
+   REQUIRED STAR
+========================================= */
+
+.content-metadata-card .required {
+  color: #dc3545;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* =========================================
+   CHECKBOX ALIGNMENT
+========================================= */
+
+.metadata-checkboxes {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+  min-height: 40px;
+  padding: 0;
+  margin: 0;
+}
+
+.metadata-checkboxes .form-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 9px;
+  min-height: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.metadata-checkboxes .form-check-input {
+  position: static;
+  float: none;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  margin: 0 !important;
+  border: 1px solid #002266;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none !important;
+  box-shadow: none;
+}
+
+.metadata-checkboxes .form-check-input:checked {
+  background-color: #002266;
+  border-color: #002266;
+}
+
+.metadata-checkboxes .form-check-input:focus {
+  outline: none !important;
+  border-color: #002266 !important;
+  box-shadow: none !important;
+}
+
+.metadata-checkboxes .form-check-label {
+  margin: 0;
+  padding: 0;
+  color: #080a0c;
+  font-family: inherit;
+  font-size: 14px !important;
+  font-weight: 400;
+  line-height: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* =========================================
+   PRIORITY SERIAL NUMBER
+========================================= */
+
+.content-metadata-card .priority-field {
+  margin-top: 0 !important;
+}
+
+/* =========================================
+   SUBMIT BUTTON
+========================================= */
+
+.content-metadata-card .metadata-submit-btn {
+  min-width: 85px;
+  height: 42px;
+  padding: 8px 18px;
+  border: 1px solid #002266 !important;
+  border-radius: 6px;
+  background-color: #002266 !important;
+  color: #fff !important;
+  font-size: 14px !important;
+  font-weight: 600;
+  box-shadow: none !important;
+}
+
+.content-metadata-card .metadata-submit-btn:hover,
+.content-metadata-card .metadata-submit-btn:focus,
+.content-metadata-card .metadata-submit-btn:active,
+.content-metadata-card .metadata-submit-btn:disabled {
+  background-color: #002266 !important;
+  border-color: #002266 !important;
+  color: #fff !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* =========================================
+   VALIDATION MESSAGES
+========================================= */
+
+.field-error {
+  margin-top: 5px;
+  color: #dc3545;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 767px) {
+  .content-metadata-card .card-body {
+    padding: 18px 16px;
+  }
+
+  .content-metadata-card .row {
+    --cui-gutter-y: 24px;
+  }
+
+  .metadata-checkboxes {
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+}

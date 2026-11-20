@@ -1,0 +1,57 @@
+.audit-trail-sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.audit-trail-table {
+  min-width: 760px;
+}
+
+.audit-trail-table th:first-child,
+.audit-trail-table td:first-child {
+  width: 4.5rem;
+  min-width: 4.5rem;
+}
+
+.audit-trail-table th:nth-child(2),
+.audit-trail-table td:nth-child(2) {
+  width: 8rem;
+  min-width: 8rem;
+}
+
+.audit-trail-table th:nth-child(4),
+.audit-trail-table td:nth-child(4) {
+  width: 13rem;
+  min-width: 13rem;
+}
+
+.audit-trail-table th:last-child,
+.audit-trail-table td:last-child {
+  width: 10rem;
+  min-width: 10rem;
+}
+
+.audit-trail-date-input {
+  height: 2.375rem;
+  padding-inline: 0.65rem;
+  border-radius: var(--cui-border-radius);
+  accent-color: var(--cui-primary);
+  cursor: pointer;
+}
+
+.audit-trail-date-input:focus {
+  border-color: var(--cui-primary);
+  box-shadow: 0 0 0 0.15rem rgba(var(--cui-primary-rgb), 0.15);
+}
+
+.audit-trail-date-input::-webkit-calendar-picker-indicator {
+  padding: 0.2rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.audit-trail-date-input::-webkit-calendar-picker-indicator:hover {
+  background-color: var(--cui-tertiary-bg);
+  opacity: 1;
+}

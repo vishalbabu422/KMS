@@ -1,0 +1,36 @@
+.trash-table {
+  table-layout: fixed;
+  min-width: 63rem;
+}
+
+.trash-table th:nth-child(1),
+.trash-table td:nth-child(1) {
+  width: 8rem;
+}
+
+.trash-table th:nth-child(2),
+.trash-table td:nth-child(2) {
+  width: 14rem;
+}
+
+.trash-table th:nth-child(3),
+.trash-table td:nth-child(3) {
+  width: 18rem;
+}
+
+.trash-table th:nth-child(4),
+.trash-table td:nth-child(4) {
+  width: 9rem;
+}
+
+.trash-table th:nth-child(5),
+.trash-table td:nth-child(5) {
+  width: 8rem;
+  white-space: nowrap;
+}
+
+.trash-table th:nth-child(6),
+.trash-table td:nth-child(6) {
+  width: 5rem;
+  white-space: nowrap;
+}

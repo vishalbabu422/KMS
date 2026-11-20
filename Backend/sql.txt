@@ -1,0 +1,17 @@
+ALTER TABLE kms.kmsv6_content_metadata_mappings
+DROP CONSTRAINT kmsv6_content_metadata_mappings_catalog_id_fkey;
+
+ALTER TABLE kms.kmsv6_content_metadata_mappings
+ADD CONSTRAINT kmsv6_content_metadata_mappings_catalog_id_fkey
+FOREIGN KEY (catalog_id)
+REFERENCES kms.kmsv6_content_catalogs(id)
+ON DELETE CASCADE;
+
+ALTER TABLE kms.kmsv6_content_catalog_fields
+DROP CONSTRAINT kmsv6_content_catalog_fields_content_catalog_id_fkey;
+
+ALTER TABLE kms.kmsv6_content_catalog_fields
+ADD CONSTRAINT kmsv6_content_catalog_fields_content_catalog_id_fkey
+FOREIGN KEY (content_catalog_id)
+REFERENCES kms.kmsv6_content_catalogs(id)
+ON DELETE CASCADE;

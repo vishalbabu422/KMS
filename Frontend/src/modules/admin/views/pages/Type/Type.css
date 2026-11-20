@@ -1,0 +1,19 @@
+.type-table th:nth-child(1),
+.type-table td:nth-child(1),
+.type-table th:nth-child(2),
+.type-table td:nth-child(2) {
+  width: 5rem;
+  max-width: 5rem;
+}
+
+.type-table th:nth-child(3),
+.type-table td:nth-child(3) {
+  width: 12rem;
+  max-width: 12rem;
+}
+
+.type-table th:nth-child(5),
+.type-table td:nth-child(5) {
+  width: 5.5rem;
+  max-width: 5.5rem;
+}

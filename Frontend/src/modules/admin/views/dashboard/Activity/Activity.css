@@ -1,0 +1,133 @@
+
+.kms-activity-card {
+  min-width: 0;
+  height: 100%;
+  min-height: 100%;
+  border: 1px solid #edf0f5 !important;
+  border-radius: 12px !important;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(24, 44, 80, .09);
+}
+
+.kms-activity-card .card-body {
+  padding: 20px 18px;
+}
+
+.kms-activity-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #082d78;
+  margin-bottom: 25px;
+}
+
+.kms-activity-heading-icon {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  place-items: center;
+  border-radius: 6px;
+  background: #eaf1ff;
+  color: #082d78;
+}
+
+.kms-activity-heading-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.kms-activity-heading h5 {
+  margin: 0;
+  color: #303c50;
+  font-size: 18px;
+  font-weight: 650;
+}
+
+.kms-activity-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.kms-activity-item {
+  display: grid;
+  grid-template-columns: 13px 34px minmax(0, 1fr);
+  gap: 10px;
+  min-height: 76px;
+}
+
+.kms-activity-timeline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  padding-top: 8px;
+}
+
+.kms-activity-dot {
+  height: 8px;
+  width: 8px;
+  background: #092e77;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.kms-activity-connector {
+  position: absolute;
+  top: 19px;
+  height: 57px;
+  width: 2px;
+  background: #d2d4d8;
+}
+
+.kms-activity-user {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #eaf1ff;
+  color: #002266;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.kms-activity-description {
+  min-width: 0;
+}
+
+.kms-activity-description p {
+  margin: 0 0 5px;
+  color: #3c485d;
+  font-size: 13px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.kms-activity-description p strong {
+  font-weight: 650;
+}
+
+.kms-activity-description > span {
+  color: #8791a6;
+  font-size: 12px;
+}
+
+@media(max-width: 1200px) {
+  .kms-activity-card {
+    min-height: auto;
+  }
+
+  .kms-activity-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 20px;
+  }
+}
+
+@media(max-width: 575px) {
+  .kms-activity-list {
+    grid-template-columns: 1fr;
+  }
+}

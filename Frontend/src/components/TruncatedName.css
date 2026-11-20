@@ -1,0 +1,14 @@
+.truncated-name {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+.truncated-name__text {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: bottom;
+}

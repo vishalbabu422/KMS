@@ -1,0 +1,19 @@
+.audience-table th:nth-child(1),
+.audience-table td:nth-child(1),
+.audience-table th:nth-child(2),
+.audience-table td:nth-child(2) {
+  width: 5rem;
+  max-width: 5rem;
+}
+
+.audience-table th:nth-child(3),
+.audience-table td:nth-child(3) {
+  width: 12rem;
+  max-width: 12rem;
+}
+
+.audience-table th:nth-child(5),
+.audience-table td:nth-child(5) {
+  width: 5.5rem;
+  max-width: 5.5rem;
+}

@@ -1,0 +1,16 @@
+.confirm-action-modal-header {
+  color: #fff;
+  background-color: #002266;
+}
+
+.confirm-action-modal-header .modal-title {
+  color: inherit;
+}
+
+.confirm-action-modal-header .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.modal.show.confirm-action-modal .modal-dialog.modal-dialog-centered {
+  transform: translateY(-3rem);
+}

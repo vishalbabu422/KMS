@@ -1,0 +1,22 @@
+.workflows-sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.workflows-table th:first-child,
+.workflows-table td:first-child {
+  width: 4.5rem;
+  min-width: 4.5rem;
+}
+
+.workflows-table th:nth-child(4),
+.workflows-table td:nth-child(4) {
+  width: 7rem;
+  min-width: 7rem;
+}
+
+.workflows-table th:last-child,
+.workflows-table td:last-child {
+  width: 5.5rem;
+  min-width: 5.5rem;
+}

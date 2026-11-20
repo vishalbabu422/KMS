@@ -1,0 +1,181 @@
+import { Fragment } from "react";
+import {
+  CPagination,
+  CPaginationItem,
+  CTable,
+  CTableBody,
+  CTableDataCell,
+  CTableHead,
+  CTableHeaderCell,
+  CTableRow,
+} from "@coreui/react";
+import TruncatedName from "@/components/TruncatedName";
+import "./AuditTrail.css";
+
+const columns = [
+  { label: "Sno", key: null },
+  { label: "Login ID", key: "login_id" },
+  { label: "Activity", key: "activity" },
+  { label: "Date and Time", key: "date_time" },
+  { label: "IP Address", key: "login_ip" },
+];
+
+const formatDateTime = (value) => {
+  if (!value) return "-";
+  const date = new Date(value);
+  return Number.isNaN(date.getTime())
+    ? String(value)
+    : date.toLocaleString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "2-digit",
+        hour: "numeric",
+        minute: "2-digit",
+      });
+};
+
+export default function AuditTrailTable({
+  rows,
+  rowStart,
+  rowCount,
+  page,
+  totalPages,
+  sortConfig,
+  onSort,
+  onPageChange,
+}) {
+  return (
+    <>
+      <div className="table-responsive">
+        <CTable
+          striped
+          bordered
+          hover
+          className="mb-0 align-middle table-sm small audit-trail-table"
+        >
+          <CTableHead>
+            <CTableRow>
+              {columns.map((column) => (
+                <CTableHeaderCell
+                  key={column.label}
+                  scope="col"
+                  aria-sort={
+                    column.key && sortConfig.key === column.key
+                      ? sortConfig.direction === "asc"
+                        ? "ascending"
+                        : "descending"
+                      : "none"
+                  }
+                  onClick={() => column.key && onSort(column.key)}
+                  className={[
+                    column.key && "audit-trail-sortable",
+                    "text-nowrap",
+                    column.label === "Sno" && "text-center",
+                  ]
+                    .filter(Boolean)
+                    .join(" ")}
+                >
+                  {column.label}
+                  {column.key && (
+                    <span
+                      className="ms-1 text-body-secondary"
+                      aria-hidden="true"
+                    >
+                      {sortConfig.key === column.key
+                        ? sortConfig.direction === "asc"
+                          ? "▲"
+                          : "▼"
+                        : "↕"}
+                    </span>
+                  )}
+                </CTableHeaderCell>
+              ))}
+            </CTableRow>
+          </CTableHead>
+          <CTableBody>
+            {rows.length ? (
+              rows.map((record, index) => (
+                <CTableRow key={record.id}>
+                  <CTableDataCell className="text-center">
+                    {rowStart + index + 1}
+                  </CTableDataCell>
+                  <CTableDataCell>
+                    <TruncatedName text={record.login_id} />
+                  </CTableDataCell>
+                  <CTableDataCell>
+                    <TruncatedName text={record.activity} />
+                  </CTableDataCell>
+                  <CTableDataCell>
+                    {formatDateTime(record.date_time)}
+                  </CTableDataCell>
+                  <CTableDataCell>{record.login_ip}</CTableDataCell>
+                </CTableRow>
+              ))
+            ) : (
+              <CTableRow>
+                <CTableDataCell
+                  colSpan={columns.length}
+                  className="text-center text-body-secondary py-4"
+                >
+                  No audit trail records found.
+                </CTableDataCell>
+              </CTableRow>
+            )}
+          </CTableBody>
+        </CTable>
+      </div>
+
+      <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mt-3">
+        <div className="small text-body-secondary">
+          Showing {rowCount === 0 ? 0 : rowStart + 1} to{" "}
+          {Math.min(rowStart + rows.length, rowCount)} of {rowCount} records
+        </div>
+
+        {totalPages > 1 && (
+          <CPagination
+            aria-label="Audit trail pages"
+            className="mb-0"
+          >
+            <CPaginationItem
+              disabled={page === 1}
+              onClick={() => onPageChange((current) => Math.max(current - 1, 1))}
+              aria-label="Previous page"
+            >
+              Previous
+            </CPaginationItem>
+            {Array.from({ length: totalPages }, (_, index) => index + 1)
+              .filter(
+                (pageNumber) =>
+                  pageNumber === 1 ||
+                  pageNumber === totalPages ||
+                  Math.abs(pageNumber - page) <= 2,
+              )
+              .map((pageNumber, index, pages) => (
+                <Fragment key={pageNumber}>
+                  {index > 0 && pages[index - 1] < pageNumber - 1 && (
+                    <CPaginationItem disabled>...</CPaginationItem>
+                  )}
+                  <CPaginationItem
+                    active={pageNumber === page}
+                    onClick={() => onPageChange(pageNumber)}
+                    aria-label={`Page ${pageNumber}`}
+                  >
+                    {pageNumber}
+                  </CPaginationItem>
+                </Fragment>
+              ))}
+            <CPaginationItem
+              disabled={page === totalPages}
+              onClick={() =>
+                onPageChange((current) => Math.min(current + 1, totalPages))
+              }
+              aria-label="Next page"
+            >
+              Next
+            </CPaginationItem>
+          </CPagination>
+        )}
+      </div>
+    </>
+  );
+}

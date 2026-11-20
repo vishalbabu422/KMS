@@ -1,0 +1,22 @@
+.global-roles-sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.global-roles-table th:first-child,
+.global-roles-table td:first-child {
+  width: 4.5rem;
+  min-width: 4.5rem;
+}
+
+.global-roles-table th:nth-child(3),
+.global-roles-table td:nth-child(3) {
+  width: 7rem;
+  min-width: 7rem;
+}
+
+.global-roles-table th:last-child,
+.global-roles-table td:last-child {
+  width: 5.5rem;
+  min-width: 5.5rem;
+}

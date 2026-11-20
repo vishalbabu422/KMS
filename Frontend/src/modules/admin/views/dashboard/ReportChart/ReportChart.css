@@ -1,0 +1,177 @@
+.report-chart-card {
+  position: relative;
+  min-width: 0;
+  min-height: 305px;
+  height: 100%;
+  overflow: hidden;
+  border: none !important;
+  outline: none;
+  border-radius: 14px !important;
+  background: #fff;
+  box-shadow: 0 5px 18px rgba(24, 44, 80, 0.1);
+}
+
+.report-chart-card .card-body {
+  min-width: 0;
+  padding: 20px 18px 14px 21px;
+}
+
+.report-chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.report-chart-heading {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+}
+
+.report-chart-icon {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  place-items: center;
+  border-radius: 6px;
+  background: #eaf1ff;
+  color: #082d78;
+}
+
+.report-chart-title-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.report-chart-title-row h5 {
+  margin: 0;
+  color: #303c50;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.report-chart-card .report-chart-subtitle {
+  margin: 6px 0 0;
+  color: #778198;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.report-chart-tabs {
+  display: flex;
+  width: 100%;
+  margin-top: 15px;
+  padding: 3px;
+  border-radius: 10px;
+  background: #f1f4fa;
+}
+
+.report-chart-tabs .btn {
+  flex: 1;
+  padding: 5px 7px;
+  border: 0;
+  border-radius: 8px !important;
+  color: #65728a;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.report-chart-tabs .btn-primary {
+  background: #002266;
+  box-shadow: 0 2px 6px rgba(0, 34, 102, 0.2);
+  color: #fff;
+}
+
+.report-chart-tabs .btn-primary:hover,
+.report-chart-tabs .btn-primary:active {
+  background: #002266;
+  color: #fff;
+}
+
+.report-chart-tabs .btn-light {
+  background: transparent;
+}
+
+.report-chart-tabs .btn:focus-visible {
+  outline: 2px solid #1769d2;
+  outline-offset: 2px;
+}
+
+.report-chart-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.report-chart-stat {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 10px;
+  border: 1px solid #edf1f7;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.report-chart-stat-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #778198;
+  font-size: 11px;
+}
+
+.report-chart-stat-label i {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+}
+
+.report-chart-stat strong {
+  overflow: hidden;
+  color: #26344c;
+  font-size: 16px;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+}
+
+.report-chart-plot {
+  position: relative;
+  height: 158px;
+  margin-top: 8px;
+}
+
+@media (max-width: 575px) {
+  .report-chart-card .card-body {
+    padding: 15px 12px 12px 16px;
+  }
+
+  .report-chart-title-row h5 {
+    font-size: 18px;
+  }
+
+  .report-chart-tabs .btn {
+    padding: 5px 3px;
+    font-size: 10px;
+  }
+
+  .report-chart-stat {
+    padding: 7px 6px;
+  }
+
+  .report-chart-stat-label {
+    font-size: 10px;
+  }
+
+  .report-chart-stat strong {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,169 @@
+@use "@coreui/coreui/scss/coreui" as * with (
+  $enable-deprecation-messages: false
+);
+@use "@coreui/chartjs/scss/coreui-chartjs";
+@use "vendors/simplebar";
+
+body {
+  background-color: var(--cui-tertiary-bg);
+}
+
+.wrapper {
+  width: 100%;
+  padding-inline: var(--cui-sidebar-occupy-start, 0)
+    var(--cui-sidebar-occupy-end, 0);
+  will-change: auto;
+  @include transition(padding 0.15s);
+}
+
+.header > .container-fluid,
+.sidebar-header {
+  min-height: calc(
+    4rem + 1px
+  ); // stylelint-disable-line function-disallowed-list
+}
+
+.sidebar-brand-full {
+  margin-left: 3px;
+}
+
+.sidebar-nav .nav-link {
+  padding-block: 0.5rem;
+}
+
+.sidebar-header {
+  .nav-underline-border {
+    --cui-nav-underline-border-link-padding-x: 1rem;
+    --cui-nav-underline-border-gap: 0;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    min-height: calc(
+      4rem + 1px
+    ); // stylelint-disable-line function-disallowed-list
+  }
+}
+
+.sidebar-toggler {
+  margin-inline-start: auto;
+}
+
+.sidebar-narrow,
+.sidebar-narrow-unfoldable:not(:hover) {
+  .sidebar-toggler {
+    margin-inline-end: auto;
+  }
+}
+
+.header > .container-fluid + .container-fluid {
+  min-height: 3rem;
+}
+
+.footer {
+  min-height: calc(
+    3rem + 1px
+  ); // stylelint-disable-line function-disallowed-list
+}
+
+// Shared label weight for form controls.
+.app-form-label {
+  font-weight: 600;
+  font-size: 12px;
+}
+
+// Keep admin tables within their container by wrapping cell content.
+.table-responsive {
+  overflow-x: hidden;
+}
+
+.table {
+  table-layout: fixed;
+}
+
+.table th,
+.table td {
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 767.98px) {
+  .table th,
+  .table td {
+    width: auto !important;
+    max-width: none !important;
+  }
+}
+
+.app-form-dropdown {
+  color: var(--cui-body-color);
+  background-color: var(--cui-body-bg);
+  border-color: var(--cui-border-color);
+  min-height: calc(1.5em + 0.5rem + 2px);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  box-sizing: border-box;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.app-form-dropdown:hover,
+.app-form-dropdown:active,
+.app-form-dropdown.show {
+  color: var(--cui-body-color);
+  background-color: var(--cui-body-bg);
+  border-color: var(--cui-border-color);
+}
+
+// Keep the focus ring visible after the neutral hover/open state.
+.app-form-control:focus,
+.app-form-select:focus,
+.app-form-dropdown:focus {
+  border-color: #9bb9e8;
+  box-shadow: 0 0 0 0.15rem rgba(59, 130, 246, 0.12);
+}
+
+// Shared wrapping/alignment for options in searchable dropdowns.
+.app-form-dropdown-option {
+  border: 0 !important;
+  text-align: left;
+  text-decoration: none !important;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+// focus/checked styling for forms.
+.form-check-input {
+  flex: 0 0 0.9rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  margin: 0;
+}
+
+.app-form-check .form-check-input:focus {
+  border-color: #9bb9e8;
+  box-shadow: 0 0 0 0.15rem rgba(59, 130, 246, 0.12);
+}
+
+.form-check-input:checked {
+  border-color: #5b7cfa;
+  background-color: #5b7cfa;
+}
+
+// .app-form-check .form-check-label {
+//   margin: 0;
+//   font-weight: 600;
+//   line-height: 1.2;
+// }
+
+@include color-mode(dark) {
+  body {
+    background-color: var(--cui-dark-bg-subtle);
+  }
+
+  .footer {
+    --cui-footer-bg: var(--cui-body-bg);
+  }
+}

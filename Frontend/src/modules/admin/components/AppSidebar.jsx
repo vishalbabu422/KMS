@@ -1,0 +1,89 @@
+/**
+ * AppSidebar Component
+ *
+ * Collapsible navigation sidebar with branding, menu items, and toggle controls.
+ *
+ * Features:
+ * - Redux-controlled visibility state
+ * - Unfoldable/narrow mode for more screen space
+ * - Brand logo with full and narrow variants
+ * - Close button for mobile devices
+ * - Footer with toggle button
+ * - Dark color scheme
+ * - Fixed positioning
+ *
+ * @component
+ * @example
+ * return (
+ *   <AppSidebar />
+ * )
+ */
+
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+
+import {
+  CCloseButton,
+  CSidebar,
+  CSidebarBrand,
+  CSidebarHeader,
+} from '@coreui/react'
+import CIcon from '@coreui/icons-react'
+
+import { AppSidebarNav } from './AppSidebarNav'
+
+import eofficeLogo from '../assets/images/eofficelogo.svg'
+
+// sidebar nav config
+import navigation from '../_nav'
+
+/**
+ * AppSidebar functional component
+ *
+ * Manages sidebar state with Redux:
+ * - sidebarShow: Controls sidebar visibility
+ * - sidebarUnfoldable: Controls narrow/wide mode
+ *
+ * Renders navigation from _nav.js configuration file.
+ * Memoized to prevent unnecessary re-renders.
+ *
+ * @returns {React.ReactElement} Sidebar with navigation
+ */
+const AppSidebar = () => {
+  const dispatch = useDispatch()
+  const sidebarShow = useSelector((state) => state.sidebarShow)
+
+  return (
+    <CSidebar
+      className="border-end"
+      colorScheme="dark"
+      position="fixed"
+      visible={sidebarShow}
+      onVisibleChange={(visible) => {
+        dispatch({ type: 'set', sidebarShow: visible })
+      }}
+    >
+      <CSidebarHeader className="border-bottom">
+        <CSidebarBrand to="/admin/dashboard">
+          <img className="sidebar-brand-full" src={eofficeLogo} alt="eOffice" height={65} />
+          <img
+            className="sidebar-brand-narrow"
+            src={eofficeLogo}
+            alt=""
+            width={32}
+            height={32}
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
+          />
+        </CSidebarBrand>
+        <CCloseButton
+          className="d-lg-none"
+          dark
+          onClick={() => dispatch({ type: 'set', sidebarShow: false })}
+        />
+      </CSidebarHeader>
+      <AppSidebarNav items={navigation} />
+    </CSidebar>
+  )
+}
+
+export default React.memo(AppSidebar)
